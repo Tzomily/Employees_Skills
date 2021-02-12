@@ -74,4 +74,4 @@ Resource | POST | GET | PUT | DELETE
 
 
 ## Database Diagram:
-(/Employees_Skills/Documentation/DatabaseDiagram.PNG)
+![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/DatabaseDiagram.PNG)

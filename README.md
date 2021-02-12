@@ -1,5 +1,7 @@
 # Employees_Skills
 
+![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/Diagram.PNG)
+
 
 ## The tools I used:
 
@@ -36,6 +38,13 @@ https://en.wikipedia.org/wiki/Hibernate_(framework)#:~:text=Hibernate%20ORM%20(o
 ### Database
 Used Mysql database for local database.
 MySQL is a freely available open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL). SQL is the most popular language for adding, accessing and managing content in a database. It is most noted for its quick processing, proven reliability, ease and flexibility of use.
+
+### Relational database 
+The primary benefit of the relational database approach is the ability to create meaningful information by joining the tables. Joining tables allows you to understand the relationships between the data, or how the tables connect. SQL includes the ability to count, add, group, and also combine queries. SQL can perform basic math and subtotal functions and logical transformations. Analysts can order the results by date, name, or any column.
+Also some of the advantages are:
+* Flexibility 
+* Reduced redundancy 
+* Ease of backup and disaster recovery 
 
 ### Postman
 Postman is a popular API client that makes it easy for developers to create, share, test and document APIs. This is done by allowing users to create and save simple and complex HTTP/s requests, as well as read their responses.
@@ -80,6 +89,7 @@ Also, [my postman collection](https://www.getpostman.com/collections/52d5a400883
 ## Database Diagram:
 ![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/DatabaseDiagram.PNG)
 
+*Created an [sql script](https://github.com/Tzomily/Employees_Skills/tree/main/sql_script) to create the tables and fill them with some data*
 
 ## Future Features
 

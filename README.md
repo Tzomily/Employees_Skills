@@ -56,8 +56,10 @@ Resource | POST | GET | PUT | DELETE
 ---------|------|-----|-----|-------
 /employees|Create a new employee|Retrieve all employees|Update an employee|--
 /employees/1|--|Retrieve employee with id 1| --|Delete employee with id 1
+/employees?lastName=Apple|--|Retrieve employees with last name=Apple|--|--
 /skills|Create a new skill|Retrieve all skills|Update an skill|--
 /skills/1|--|Retrieve skill with id 1| --|Delete skill with id 1
+/skills?name=Ethics|--|Retrieve skills with name=Ethics|--|--
 
 
 ## JSON outputs example:

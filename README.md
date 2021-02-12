@@ -62,16 +62,31 @@ Resource | POST | GET | PUT | DELETE
 
 ## JSON outputs example:
 
-**GET** : ...\api\employees\3
+**GET** :` ...\api\employees\3`
 ```json
     {"id":3,"firstName":"Ajay","lastName":"Rao","email":"ajay@luv2code.com","phone":"(30)6954786523","address":"Eleftheriou Venizelou 5","hiringDate":"2017-02-15 00:00:00.0","birthday":"1942-03-15 00:00:00.0","availability":true,"skills":[{"id":1,"name":"Ethics","description":"moral principles that govern a person's behaviour or the conducting of an activity","creationDate":"2017-01-20 00:00:00.0","required":true},{"id":5,"name":"Problem solving","description":"The process of finding solutions to difficult or complex issues","creationDate":"2017-01-20 00:00:00.0","required":false}]}
 ```
 
-**POST** : ...\api\employees\
+**POST** :` ...\api\employees\`
 ```json
     {"id":8,"firstName":"Nikos","lastName":"Papadopoulous","email":"nikos_papadopoulos@gmail.com","phone":"(30)6954754653","address":"Eleftheriou Venizelou 5","hiringDate":"2017-02-15 00:00:00.0","birthday":"1942-03-15 00:00:00.0","availability":true,"skills":[{"id":1,"name":"Ethics","description":"moral principles that govern a person's behaviour or the conducting of an activity","creationDate":"2017-01-20 00:00:00.0","required":true},{"id":5,"name":"Problem solving","description":"The process of finding solutions to difficult or complex issues","creationDate":"2017-01-20 00:00:00.0","required":false}]}
 ```
 
+*more instance examples for each postman example I run are in [Documentation](https://github.com/Tzomily/Employees_Skills/tree/main/Documentation) file.
+Also, [my postman collection](https://www.getpostman.com/collections/52d5a400883022379bf3).*
 
 ## Database Diagram:
 ![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/DatabaseDiagram.PNG)
+
+
+## Future Features
+
+There are many features that could be added to this project. In my opinion some of the important ones are:
+* **Further Get, Post, Put, Delete methods**: For example, it would be more user friendly if it was possible to connect skills with employees just by id.
+So far, adding skills to employees or employees to skills is done with the use of PUT and the body of json given.
+* **Better updating of ids on DB**: The ids are auto-incremented but when an entry is deleted, the empty spot isn't filled by the new input.
+* **Testing**: Tests are needed to secure quality of the application and the right-operation. So far, the application has been manually tested and an effort for automatic tests has been made(but not completed).
+* **Logging and Metrics**: Logging and Metrics are required when an application becomes very big, so that traffic can be monitored, as well as, the application's performance
+* **Front end extension**: The application should have a more user-frienly output that can simplify the methods with the use of buttons (or something similar).
+* **Securiyt features**: In most cases, it is required to have authorised access before accessing/editing a database.
+* **Search options**: A variety of search options and filters that would simplify the data viewed.

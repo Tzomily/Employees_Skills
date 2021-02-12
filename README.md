@@ -61,6 +61,17 @@ Resource | POST | GET | PUT | DELETE
 
 
 ## JSON outputs example:
+
+**GET** : ...\api\employees\3
 ```json
     {"id":3,"firstName":"Ajay","lastName":"Rao","email":"ajay@luv2code.com","phone":"(30)6954786523","address":"Eleftheriou Venizelou 5","hiringDate":"2017-02-15 00:00:00.0","birthday":"1942-03-15 00:00:00.0","availability":true,"skills":[{"id":1,"name":"Ethics","description":"moral principles that govern a person's behaviour or the conducting of an activity","creationDate":"2017-01-20 00:00:00.0","required":true},{"id":5,"name":"Problem solving","description":"The process of finding solutions to difficult or complex issues","creationDate":"2017-01-20 00:00:00.0","required":false}]}
 ```
+
+**POST** : ...\api\employees\
+```json
+    {"id":8,"firstName":"Nikos","lastName":"Papadopoulous","email":"nikos_papadopoulos@gmail.com","phone":"(30)6954754653","address":"Eleftheriou Venizelou 5","hiringDate":"2017-02-15 00:00:00.0","birthday":"1942-03-15 00:00:00.0","availability":true,"skills":[{"id":1,"name":"Ethics","description":"moral principles that govern a person's behaviour or the conducting of an activity","creationDate":"2017-01-20 00:00:00.0","required":true},{"id":5,"name":"Problem solving","description":"The process of finding solutions to difficult or complex issues","creationDate":"2017-01-20 00:00:00.0","required":false}]}
+```
+
+
+## Database Diagram:
+(/Employees_Skills/Documentation/DatabaseDiagram.PNG)

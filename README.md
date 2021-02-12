@@ -1,6 +1,6 @@
 # Employees_Skills
 
-![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/Diagram.PNG)
+![alt text](https://github.com/Tzomily/Employees_Skills/blob/main/Documentation/diagram.PNG)
 
 
 ## The tools I used:

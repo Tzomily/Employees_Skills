@@ -35,10 +35,21 @@ public class EmployeeRestController {
 		Employee theEmployee = employeeService.getEmployee(employeeId);
 		
 		if(theEmployee==null) {
-			throw new EmployeeNotFoundException("Customer id not found - "+employeeId);
+			throw new EmployeeNotFoundException("Employee id not found - "+employeeId);
 		}
 		return theEmployee;
 	}
+	
+	// add mapping for GET/employees/{lastName}/{firstName}
+		@GetMapping("/{lastName}/{firstName}")
+		public List<Employee> getEmployees(@PathVariable String lastName,@PathVariable String firstName) {
+			List<Employee> theEmployees = employeeService.getEmployees(lastName,firstName);
+			
+			if(theEmployees==null) {
+				throw new EmployeeNotFoundException("Employees not found - ");
+			}
+			return theEmployees;
+		}
 
 	// add mapping for POST /employees -add a new employee
 	@PostMapping

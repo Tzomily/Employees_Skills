@@ -4,7 +4,6 @@ import java.util.List;
 
 import jomily.anv.employees_skills.entity.Employee;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
-public class EmployeeDAOImpl implements EmployeeDAO{
+public class EmployeeDAOImpl implements EmployeeDAO {
 
 	// inject the session factory
 	@Autowired
@@ -30,7 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
 		return employees;
 	}
-	
+
 	@Override
 	public void saveEmployee(Employee theEmployee) {
 
@@ -38,7 +37,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		currentSession.saveOrUpdate(theEmployee);
 
 	}
-	
+
 	@Override
 	public Employee getEmployee(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -56,4 +55,18 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
 		theQuery.executeUpdate();
 	}
+
+	@Override
+	public List<Employee> getEmployees(String lastName, String firstName) {
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		// Query to sort by last name
+		Query<Employee> theQuery = currentSession.createQuery("from Employee where lastName and fistName order by lastName", Employee.class);
+
+		List<Employee> employees = theQuery.getResultList();
+
+		return employees;
+	}
+
+	
 }

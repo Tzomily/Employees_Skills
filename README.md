@@ -42,9 +42,25 @@ Postman is a popular API client that makes it easy for developers to create, sha
 Postman is very convenient when it comes to executing APIs. Once you’ve entered and saved them, you can simply use them over and over again, without having to remember the exact endpoint, headers, API keys, etc.
 
 
-### Documentation for the project
+## Documentation for the project
+
+### Define operations in terms of HTTP methods
+
+ The common HTTP methods used by most RESTful web APIs are:
+ * **GET**: Get a representation of the target resource’s state.
+ * **POST**:Let the target resource process the representation enclosed in the request.
+ * **PUT**:Set the target resource’s state to the state defined by the representation enclosed in the request.
+ * **DELETE**: Delete the target resource’s state.
 
 Resource | POST | GET | PUT | DELETE
 ---------|------|-----|-----|-------
 /employees|Create a new employee|Retrieve all employees|Update an employee|--
 /employees/1|--|Retrieve employee with id 1| --|Delete employee with id 1
+/skills|Create a new skill|Retrieve all skills|Update an skill|--
+/skills/1|--|Retrieve skill with id 1| --|Delete skill with id 1
+
+
+## JSON outputs example:
+```json
+    {"id":3,"firstName":"Ajay","lastName":"Rao","email":"ajay@luv2code.com","phone":"(30)6954786523","address":"Eleftheriou Venizelou 5","hiringDate":"2017-02-15 00:00:00.0","birthday":"1942-03-15 00:00:00.0","availability":true,"skills":[{"id":1,"name":"Ethics","description":"moral principles that govern a person's behaviour or the conducting of an activity","creationDate":"2017-01-20 00:00:00.0","required":true},{"id":5,"name":"Problem solving","description":"The process of finding solutions to difficult or complex issues","creationDate":"2017-01-20 00:00:00.0","required":false}]}
+```

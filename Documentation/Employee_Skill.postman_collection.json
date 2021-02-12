@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "ecf14462-3259-4204-978f-7d3f83e831bd",
+		"name": "Employee_Skill",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IndexPage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}employees-skills-app/",
+					"host": [
+						"{{host}}employees-skills-app"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllEmployeees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/employees",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllSkills",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/skills",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAnEmployee(e.g.Id=3)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/employees/3",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"employees",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetASkill(e.g.Id=2)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/skills/2",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"skills",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostEmployee(AddAnEmployeeWithHisSkills)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Nikos\",\r\n    \"lastName\": \"Papadopoulous\",\r\n    \"email\": \"nikos_papadopoulos@gmail.com\",\r\n    \"phone\": \"(30)6954754653\",\r\n    \"address\": \"Eleftheriou Venizelou 5\",\r\n    \"hiringDate\": \"2017-02-15 00:00:00.0\",\r\n    \"birthday\": \"1942-03-15 00:00:00.0\",\r\n    \"availability\": true,\r\n    \"skills\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Ethics\",\r\n            \"description\": \"moral principles that govern a person's behaviour or the conducting of an activity\",\r\n            \"creationDate\": \"2017-01-20 00:00:00.0\",\r\n            \"required\": true\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"name\": \"Problem solving\",\r\n            \"description\": \"The process of finding solutions to difficult or complex issues\",\r\n            \"creationDate\": \"2017-01-20 00:00:00.0\",\r\n            \"required\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/employees",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostSkillWithEmployees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Reliability\",\r\n    \"description\": \"eliability means to show people that one can be depended upon\",\r\n    \"creationDate\": \"2017-01-20 00:00:00.0\",\r\n    \"required\": true,\r\n    \"employees\": [\r\n        {\r\n            \"id\": 5,\r\n            \"firstName\": \"Maxwell\",\r\n            \"lastName\": \"Dixon\",\r\n            \"email\": \"max@luv2code.com\",\r\n            \"phone\": \"(30)6923659856\",\r\n            \"address\": \"Gounari 55\",\r\n            \"hiringDate\": \"2019-05-15 00:00:00.0\",\r\n            \"birthday\": \"1965-03-15 00:00:00.0\",\r\n            \"availability\": false\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"firstName\": \"Andrew\",\r\n            \"lastName\": \"Apple\",\r\n            \"email\": \"andrew_apple@gmail.com\",\r\n            \"phone\": \"(30)6923659856\",\r\n            \"address\": \"Gounari 55\",\r\n            \"hiringDate\": \"2019-05-15 00:00:00.0\",\r\n            \"birthday\": \"1965-03-15 00:00:00.0\",\r\n            \"availability\": true\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/skills",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSkillId=3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":3,\"name\":\"Communication\",\"description\":\"the imparting or exchanging of information by speaking, writing, or using some other medium\",\"creationDate\":\"2018-01-20 00:00:00.0\",\"required\":true,\"employees\":[{\"id\":5,\"firstName\":\"Maxwell\",\"lastName\":\"Dixon\",\"email\":\"max@luv2code.com\",\"phone\":\"(30)6923659856\",\"address\":\"Gounari 55\",\"hiringDate\":\"2019-05-15 00:00:00.0\",\"birthday\":\"1965-03-15 00:00:00.0\",\"availability\":false}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/skills",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmployeeId=1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"George\",\r\n    \"lastName\": \"Adams\",\r\n    \"email\": \"george_adams@gmail.com\",\r\n    \"phone\": \"(30)6978283728\",\r\n    \"address\": \"Agiou Pavlou 10\",\r\n    \"hiringDate\": \"2020-02-15 00:00:00.0\",\r\n    \"birthday\": \"1965-03-15 00:00:00.0\",\r\n    \"availability\": true,\r\n    \"skills\": [\r\n        {\r\n    \"id\": 1,\r\n    \"name\": \"Ethics\",\r\n    \"description\": \"moral principles that govern a person's behaviour or the conducting of an activity\",\r\n    \"creationDate\": \"2017-01-20 00:00:00.0\",\r\n    \"required\": true}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/employees",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployeeId=1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/employees/1",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"employees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSkillId=7",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{proj.name}}api/skills/7",
+					"host": [
+						"{{host}}{{proj.name}}api"
+					],
+					"path": [
+						"skills",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080/"
+		},
+		{
+			"key": "proj.name",
+			"value": "employees-skills-app/"
+		}
+	]
+}

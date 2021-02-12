@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -47,9 +49,10 @@ public class Employee {
 	@Column(name = "availability")
 	private boolean availability;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	@ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	@JoinTable(name = "employee_skill", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+	@JsonIgnoreProperties("employees")
 	private List<Skill> skills;
 
 	public Employee() {
@@ -128,11 +131,19 @@ public class Employee {
 		this.availability = availability;
 	}
 
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", phone=" + phone + ", address=" + address + ", hiringDate=" + hiringDate + ", birthday=" + birthday
-				+ ", availability=" + availability + "]";
+				+ ", availability=" + availability + ", skills=" + skills + "]";
 	}
 
 }

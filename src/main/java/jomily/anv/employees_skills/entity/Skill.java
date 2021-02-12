@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "skill")
 public class Skill {
@@ -35,9 +37,10 @@ public class Skill {
 	@Column(name = "required")
 	private boolean required;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	@OneToMany(fetch = FetchType.EAGER,cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	@JoinTable(name = "employee_skill", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "employee_id"))
+	@JsonIgnoreProperties("skills")
 	private List<Employee> employees;
 
 	public Skill() {
@@ -84,10 +87,18 @@ public class Skill {
 		this.required = required;
 	}
 
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
 	@Override
 	public String toString() {
 		return "Skill [id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate
-				+ ", required=" + required + "]";
+				+ ", required=" + required + ", employees=" + employees + "]";
 	}
 
 }

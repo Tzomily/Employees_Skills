@@ -1,10 +1,5 @@
 <html>
 <body>
-
-<h3>Spring CRM REST Demo</h3>
-
-<hr><a href="${pageContext.request.contextPath}/api/employees">Get all employees</a>
-
-
+<h3> REST API - Employees-Skills</h3>
 </body>
 </html>

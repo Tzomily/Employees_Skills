@@ -3,6 +3,7 @@ package jomily.anv.employees_skills.dao;
 import java.util.List;
 
 import jomily.anv.employees_skills.entity.Employee;
+import jomily.anv.employees_skills.service.EmployeeServiceImpl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -57,16 +58,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public List<Employee> getEmployees(String lastName, String firstName) {
+	public List<Employee> getEmployees(String lastName) {
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		// Query to sort by last name
-		Query<Employee> theQuery = currentSession.createQuery("from Employee where lastName and fistName order by lastName", Employee.class);
+		Query<Employee> theQuery = currentSession.createQuery("from Employee where last_name =:lastName",
+				Employee.class);
+		theQuery.setParameter("lastName", lastName);
+		List<Employee> theEmployees = theQuery.getResultList();
 
-		List<Employee> employees = theQuery.getResultList();
-
-		return employees;
+		return theEmployees;
 	}
 
-	
 }

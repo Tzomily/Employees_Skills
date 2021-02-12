@@ -12,7 +12,7 @@ public interface EmployeeDAO {
 
 	public Employee getEmployee(int theId);
 	
-	public List<Employee> getEmployees(String lastName,String firstName);
+	public List<Employee> getEmployees(String lastName);
 
 	public void deleteEmployee(int theId);
 }

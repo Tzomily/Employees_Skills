@@ -16,7 +16,7 @@ public class SkillServiceImpl implements SkillService {
 	// inject the SkillDAO
 	@Autowired
 	private SkillDAO skillDAO;
-	
+
 	@Override
 	@Transactional
 	public List<Skill> getSkills() {
@@ -39,5 +39,12 @@ public class SkillServiceImpl implements SkillService {
 	@Transactional
 	public void deleteSkill(int theId) {
 		skillDAO.deleteSkill(theId);
+	}
+
+	@Override
+	@Transactional
+	public List<Skill> getSkills(String name) {
+
+		return skillDAO.getSkills(name);
 	}
 }

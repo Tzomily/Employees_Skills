@@ -10,6 +10,8 @@ public interface SkillDAO {
 	public void saveSkill(Skill theSkill);
 
 	public Skill getSkill(int theId);
+	
+	public List<Skill> getSkills(String name);
 
 	public void deleteSkill(int theId);
 }

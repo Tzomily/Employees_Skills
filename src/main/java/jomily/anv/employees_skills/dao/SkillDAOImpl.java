@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import jomily.anv.employees_skills.entity.Employee;
 import jomily.anv.employees_skills.entity.Skill;
 
 @Repository
@@ -52,5 +53,17 @@ public class SkillDAOImpl implements SkillDAO {
 
 			theQuery.executeUpdate();
 
+		}
+
+		@Override
+		public List<Skill> getSkills(String name) {
+			Session currentSession = sessionFactory.getCurrentSession();
+
+			// Query to sort by last name
+			Query<Skill> theQuery = currentSession.createQuery("from Skill where name=:name",Skill.class);
+			theQuery.setParameter("name", name);
+			List<Skill> theSkills = theQuery.getResultList();
+
+			return theSkills;
 		}
 }

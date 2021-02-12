@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jomily.anv.employees_skills.entity.Employee;
@@ -25,31 +26,32 @@ public class EmployeeRestController {
 
 	// add mapping for GET/employees
 	@GetMapping
-	public List<Employee> getEmployees() {
+	public List<Employee> getEmployees(@RequestParam (required = false) String lastName) {
+
+		if (lastName != null) {
+			List<Employee> theEmployees = employeeService.getEmployees(lastName);
+
+			if (theEmployees == null) {
+				throw new EmployeeNotFoundException("Employees not found - ");
+			}
+			return theEmployees;
+		}
 		return employeeService.getEmployees();
 	}
+
+	// public String addFoo(@RequestParam(name = "id") String fooId, @RequestParam
+	// String name) {
 
 	// add mapping for GET/employees/{employeeId}
 	@GetMapping("/{employeeId}")
 	public Employee getEmployee(@PathVariable int employeeId) {
 		Employee theEmployee = employeeService.getEmployee(employeeId);
-		
-		if(theEmployee==null) {
-			throw new EmployeeNotFoundException("Employee id not found - "+employeeId);
+
+		if (theEmployee == null) {
+			throw new EmployeeNotFoundException("Employee id not found - " + employeeId);
 		}
 		return theEmployee;
 	}
-	
-	// add mapping for GET/employees/{lastName}/{firstName}
-		@GetMapping("/{lastName}/{firstName}")
-		public List<Employee> getEmployees(@PathVariable String lastName,@PathVariable String firstName) {
-			List<Employee> theEmployees = employeeService.getEmployees(lastName,firstName);
-			
-			if(theEmployees==null) {
-				throw new EmployeeNotFoundException("Employees not found - ");
-			}
-			return theEmployees;
-		}
 
 	// add mapping for POST /employees -add a new employee
 	@PostMapping
@@ -72,9 +74,9 @@ public class EmployeeRestController {
 	@DeleteMapping("/{employeeId}")
 	public String deleteEmployee(@PathVariable int employeeId) {
 		Employee theEmployee = employeeService.getEmployee(employeeId);
-		
-		if(theEmployee==null) {
-			throw new EmployeeNotFoundException("Customer id not - "+employeeId);
+
+		if (theEmployee == null) {
+			throw new EmployeeNotFoundException("Customer id not - " + employeeId);
 		}
 		employeeService.deleteEmployee(employeeId);
 		return "Deleted Employee id- " + employeeId;

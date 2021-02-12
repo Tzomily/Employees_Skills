@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	@Transactional
-	public List<Employee> getEmployees(String lastName, String firstName) {
-		return employeeDAO.getEmployees(lastName, firstName);
+	public List<Employee> getEmployees(String lastName) {
+		return employeeDAO.getEmployees(lastName);
 	}
 }

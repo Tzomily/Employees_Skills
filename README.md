@@ -1,6 +1,50 @@
 # Employees_Skills
 
-### Documentation:
-The index page is in html
-The rest of the examples are in json form, can be opened with a notepad editor
 
+## The tools I used:
+
+### REST API
+Used Spring to build the REST API because it provides the means to build:
+* Backwards compatible APIs
+* Evolvable APIs
+* Scaleable services
+* Securable services
+* A spectrum of stateless to stateful services
+
+Spring provides specific annotations for REST applications (e.g.RestController ) and by the use of Repositories and Entities, the connection is automated.
+
+Based on:https://spring.io/guides/tutorials/rest/
+
+### Maven
+I used maven because of its Core Concepts:
+1. **POM Files**: Project Object Model(POM) Files are XML file that contains information related to the project and configuration information such as dependencies, source directory, plugin, goals etc. used by Maven to build the project. When you should execute a maven command you give maven a POM file to execute the commands. Maven reads pom.xml file to accomplish its configuration and operations.
+2. **Dependencies and Repositories**: Dependencies are external Java libraries required for Project and repositories are directories of packaged JAR files. The local repository is just a directory on your machine hard drive. If the dependencies are not found in the local Maven repository, Maven downloads them from a central Maven repository and puts them in your local repository.
+3. **Build Life Cycles, Phases and Goals**: A build life cycle consists of a sequence of build phases, and each build phase consists of a sequence of goals. Maven command is the name of a build lifecycle, phase or goal. If a lifecycle is requested executed by giving maven command, all build phases in that life cycle are executed also. If a build phase is requested executed, all build phases before it in the defined sequence are executed too.
+4. **Build Profiles**: Build profiles a set of configuration values which allows you to build your project using different configurations. For example, you may need to build your project for your local computer, for development and test. To enable different builds you can add different build profiles to your POM files using its profiles elements and are triggered in the variety of ways.
+5. **Build Plugins**: Build plugins are used to perform specific goal. you can add a plugin to the POM file. Maven has some standard plugins you can use, and you can also implement your own in Java.
+
+https://www.geeksforgeeks.org/introduction-apache-maven-build-automation-tool-java-projects/#:~:text=Maven%20is%20a%20powerful%20project,the%20build%20process%20like%20ANT.&text=maven%20make%20the%20day%2Dto,of%20any%20Java%2Dbased%20project.
+
+
+### Hibernate
+Hibernate ORM (or simply Hibernate) is an object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database. Hibernate handles object-relational impedance mismatch problems by replacing direct, persistent database accesses with high-level object handling functions.
+
+Hibernate's primary feature is mapping from Java classes to database tables, and mapping from Java data types to SQL data types.
+
+https://en.wikipedia.org/wiki/Hibernate_(framework)#:~:text=Hibernate%20ORM%20(or%20simply%20Hibernate,model%20to%20a%20relational%20database.&text=It%20generates%20SQL%20calls%20and,conversion%20of%20the%20result%20set.
+
+### Database
+Used Mysql database for local database.
+MySQL is a freely available open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL). SQL is the most popular language for adding, accessing and managing content in a database. It is most noted for its quick processing, proven reliability, ease and flexibility of use.
+
+### Postman
+Postman is a popular API client that makes it easy for developers to create, share, test and document APIs. This is done by allowing users to create and save simple and complex HTTP/s requests, as well as read their responses.
+Postman is very convenient when it comes to executing APIs. Once you’ve entered and saved them, you can simply use them over and over again, without having to remember the exact endpoint, headers, API keys, etc.
+
+
+### Documentation for the project
+
+Resource | POST | GET | PUT | DELETE
+---------|------|-----|-----|-------
+/employees|Create a new employee|Retrieve all employees|Update an employee|--
+/employees/1|--|Retrieve employee with id 1| --|Delete employee with id 1
